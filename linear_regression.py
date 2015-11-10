@@ -8,8 +8,11 @@ cleanInterestRate = loansData['Interest.Rate'].map(lambda x: round(float(x.rstri
 loansData['Interest.Rate'] = cleanInterestRate
 #[]
 
-#need to remove "months"
-#print loansData['Loan.Length'][0:5]
+#need to remove "months" and convert  to integer
+cleanLoanLength = loansData['Loan.Length'].map(lambda x: int(x.rstrip(' months')))
+loansData['Loan.Length'] = cleanLoanLength
+
+print loansData['Loan.Length'][0:5]
 
 #need to split and use the first column of the list
 #print loansData['FICO.Range'][0:5] 
